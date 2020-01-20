@@ -1,0 +1,41 @@
+<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" placeholder="First Name" class="form-control" [ngClass]="{ 'is-invalid': (f.firstName.touched || submitted) && f.firstName.errors }" />
+        <div *ngIf="(f.firstName.touched || submitted) && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            <div *ngIf="f.firstName.errors.pattern">Only characters are allowed</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': (f.lastName.touched || submitted) && f.lastName.errors }" />
+        <div *ngIf="(f.lastName.touched || submitted) && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            <div *ngIf="f.lastName.errors.pattern">Only characters are allowed</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email Id e.g. xxxxx@xxx.xx" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': (f.username.touched || submitted) && f.username.errors }" />
+        <div *ngIf="(f.username.touched || submitted) && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+            <div *ngIf="f.username.errors.email">Invalid Email</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': (f.password.touched || submitted) && f.password.errors }" />
+        <div *ngIf="(f.password.touched || submitted) && f.password.errors" class="invalid-feedback">
+            Password must be at least 6 characters long, one upper case, one lower case and one special character.
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+</form>
