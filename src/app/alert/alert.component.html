@@ -1,0 +1,5 @@
+<div class="row" *ngIf="message">
+    <div class="col-xs-12">
+        <div [ngClass]="message.cssClass">{{ message.text }}</div>
+    </div>
+</div>
