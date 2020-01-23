@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,10 @@ import { UserListComponent } from './user/user-list.component';
 import { RegisterComponent } from './user/registration/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { AlertComponent } from './alert/alert.component';
+import { SearchComponent } from './components/search/search.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +20,17 @@ import { AlertComponent } from './alert/alert.component';
     UserListComponent,
     RegisterComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    SearchComponent,
+    FooterComponent,
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
